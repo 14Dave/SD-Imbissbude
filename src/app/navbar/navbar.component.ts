@@ -1,12 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
+import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnChanges {
   role: string = '';
+
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {
     const requiredRole = 'wiensdavid99@gmail.com';
@@ -19,9 +22,16 @@ export class NavbarComponent implements OnInit {
     if (userRole == requiredRole) {
       this.role = 'admin';
     }
-    if (!userRole) {
-      this.role = 'noRole';
+    if (userRole !== requiredRole) {
+      this.role = 'user';
+    }
+    if (userRole == null) {
+      return;
     }
     return;
+  }
+
+  ngOnChanges() {
+    this.ngOnInit();
   }
 }
