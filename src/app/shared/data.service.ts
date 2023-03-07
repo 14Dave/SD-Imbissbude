@@ -18,7 +18,7 @@ export class DataService {
   }
 
   deleteDish(dish: Dish) {
-    return this.db.doc('/Gerichte/' + dish.id).delete();
+    return this.db.doc('/Dishes/' + dish.id).delete();
   }
 
   updateGericht(dish: Dish) {

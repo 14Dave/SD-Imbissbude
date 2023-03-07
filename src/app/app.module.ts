@@ -22,6 +22,7 @@ import { AuthService } from './shared/auth.service';
 import { DishCardComponent } from './child/dish-card/dish-card.component';
 import { ManageDishesComponent } from './admin/manage-dishes/manage-dishes.component';
 import { FormsModule } from '@angular/forms';
+import { SignOutComponent } from './login/sign-out/sign-out.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     DishCardComponent,
     ManageDishesComponent,
+    SignOutComponent,
   ],
   imports: [
     BrowserModule,

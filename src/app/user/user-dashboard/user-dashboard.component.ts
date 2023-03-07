@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Dish } from 'src/app/model/dish';
 import { AuthService } from 'src/app/shared/auth.service';
 import { DataService } from 'src/app/shared/data.service';
@@ -8,7 +8,7 @@ import { DataService } from 'src/app/shared/data.service';
   templateUrl: './user-dashboard.component.html',
   styleUrls: ['./user-dashboard.component.css'],
 })
-export class UserDashboardComponent {
+export class UserDashboardComponent implements OnInit {
   dishList: Dish[] = [];
   dishObj: Dish = {
     id: '',

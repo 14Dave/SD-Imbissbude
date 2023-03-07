@@ -12,10 +12,13 @@ import { UserOrderingComponent } from './user/user-ordering/user-ordering.compon
 import { AuthGuard } from './shared/guard/auth.guard';
 import { RoleGuard } from './shared/guard/role.guard';
 import { ManageDishesComponent } from './admin/manage-dishes/manage-dishes.component';
+import { SignOutComponent } from './login/sign-out/sign-out.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
   { path: 'sign-in', component: SignInComponent },
+  { path: 'sign-up', component: SignUpComponent },
+  { path: 'sign-out', component: SignOutComponent },
   { path: 'register-user', component: SignUpComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
