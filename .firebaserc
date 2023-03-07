@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "sd-imbissbude": {
+      "hosting": {
+        "SD-Imbissbude": [
+          "sd-imbissbude"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "sd-imbissbude"
+  }
+}
