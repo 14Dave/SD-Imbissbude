@@ -48,12 +48,13 @@
             </div>
             <div class="row">
               <div class="col">
-                <a
-                  href="/forgot-password"
-                  style="text-decoration: none"
-                  class="text-warning"
-                  >Mit Google einloggen</a
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  (click)="authService.GoogleAuth()"
                 >
+                  Login mit Google
+                </button>
               </div>
             </div>
           </form>

@@ -22,13 +22,20 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item px-1" *ngIf="role == 'user'">Bestellen</li>
-        <li class="nav-item px-1" routerLink="/login " *ngIf="role == 'user'">
+        <li class="nav-item px-1" routerLink="/sign-out" *ngIf="role == 'user'">
           Logout
         </li>
-        <li class="nav-item px-1" *ngIf="role == 'admin'">
+        <li
+          class="nav-item px-1"
+          routerLink="/manage-dishes"
+          *ngIf="role == 'admin'"
+        >
           Gerichte Bearbeiten
         </li>
         <li class="nav-item px-1" routerLink="/login" *ngIf="role == 'admin'">
+          Dashboard
+        </li>
+        <li class="nav-item px-1" routerLink="/login" *ngIf="role == 'noRole'">
           Dashboard
         </li>
       </ul>

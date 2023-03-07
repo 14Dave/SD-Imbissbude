@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  role: string = 'user';
+  role: string = '';
 
   ngOnInit() {
     const requiredRole = 'wiensdavid99@gmail.com';
@@ -18,6 +18,9 @@ export class NavbarComponent implements OnInit {
     const userRole = userData.email;
     if (userRole == requiredRole) {
       this.role = 'admin';
+    }
+    if (!userRole) {
+      this.role = 'noRole';
     }
     return;
   }
