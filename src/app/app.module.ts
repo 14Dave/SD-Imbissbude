@@ -19,6 +19,9 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { ShoppingCardComponent } from './user/shopping-card/shopping-card.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AuthService } from './shared/auth.service';
+import { DishCardComponent } from './child/dish-card/dish-card.component';
+import { ManageDishesComponent } from './admin/manage-dishes/manage-dishes.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,8 @@ import { AuthService } from './shared/auth.service';
     DashboardComponent,
     ShoppingCardComponent,
     NavbarComponent,
+    DishCardComponent,
+    ManageDishesComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +46,7 @@ import { AuthService } from './shared/auth.service';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
+    FormsModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],

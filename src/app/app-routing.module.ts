@@ -10,6 +10,8 @@ import { ShoppingCardComponent } from './user/shopping-card/shopping-card.compon
 import { UserOrderingComponent } from './user/user-ordering/user-ordering.component';
 
 import { AuthGuard } from './shared/guard/auth.guard';
+import { RoleGuard } from './shared/guard/role.guard';
+import { ManageDishesComponent } from './admin/manage-dishes/manage-dishes.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
@@ -20,7 +22,12 @@ const routes: Routes = [
   {
     path: 'dashboard-admin',
     component: DashboardComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, RoleGuard],
+  },
+  {
+    path: 'manage-dishes',
+    component: ManageDishesComponent,
+    canActivate: [AuthGuard, RoleGuard],
   },
   {
     path: 'dashboard',

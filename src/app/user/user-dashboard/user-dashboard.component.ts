@@ -7,5 +7,7 @@ import { AuthService } from 'src/app/shared/auth.service';
   styleUrls: ['./user-dashboard.component.css'],
 })
 export class UserDashboardComponent {
-  constructor(public authService: AuthService) {}
+  constructor(public authService: AuthService) {
+    console.log(localStorage.getItem('user'));
+  }
 }
