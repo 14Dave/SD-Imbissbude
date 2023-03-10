@@ -9,6 +9,8 @@ import { DataService } from 'src/app/shared/data.service';
   styleUrls: ['./user-dashboard.component.css'],
 })
 export class UserDashboardComponent implements OnInit {
+  card: Dish[] = [];
+  cardCounter: number = 0;
   dishList: Dish[] = [];
   dishObj: Dish = {
     id: '',
@@ -17,8 +19,6 @@ export class UserDashboardComponent implements OnInit {
     description: '',
     pictureLink: '',
   };
-  keys: number[] = [];
-  key: number = 0;
 
   constructor(private auth: AuthService, private data: DataService) {}
 
@@ -42,7 +42,12 @@ export class UserDashboardComponent implements OnInit {
   }
 
   addToCard(dish: Dish) {
-    localStorage.setItem(this.key.toString(), dish.id);
-    this.key += 1;
+    this.card.push(dish);
+    console.log(this.card);
+  }
+
+  writeCard() {
+    localStorage.setItem('card', JSON.stringify(this.card));
+    this.cardCounter += 1;
   }
 }

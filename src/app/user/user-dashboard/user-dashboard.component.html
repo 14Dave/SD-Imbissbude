@@ -1,5 +1,5 @@
 <h1>Was möchten Sie bestellen?</h1>
-<div class="container-fluid py-4">
+<div class="container-fluid py-20">
   <div class="row">
     <div class="col card-group">
       <div *ngFor="let dish of dishList" class="mx-2">
@@ -19,6 +19,17 @@
           Hinzufügen
         </button>
       </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button
+        type="button"
+        class="btn btn-primary mb-4 mt-2"
+        (click)="writeCard()"
+      >
+        Zum Einkaufswagen hinzufügen
+      </button>
     </div>
   </div>
 </div>
