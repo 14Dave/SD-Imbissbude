@@ -1,12 +1,33 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Dish } from '../model/dish';
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  addDoc,
+  doc,
+  setDoc,
+  updateDoc,
+  arrayUnion,
+  arrayRemove,
+} from 'firebase/firestore';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
   constructor(private db: AngularFirestore) {}
+  database = getFirestore();
+  doc: any;
+  user = localStorage.getItem('user');
+  userData: any = '';
+  userEmail: string = '';
+  if(user: any) {
+    this.userData = JSON.parse(user);
+    this.userEmail = this.userData.email;
+    // this.doc = addDoc(this.database, this.userEmail);
+  }
 
   addDish(dish: Dish) {
     dish.id = this.db.createId();
@@ -26,7 +47,11 @@ export class DataService {
     this.addDish(dish);
   }
 
-  addToOrder = async (dish: Dish[], email: string) => {
-    const ref = await this.db.collection(email).add(dish);
+  addToCard = (dish: Dish) => {
+    dish.id = this.db.createId();
+    console.log(dish);
+
+    // const cardRef = doc(this.database, this.userEmail, dish);
+    // return this.db.collection(this.userEmail).add(dish);
   };
 }

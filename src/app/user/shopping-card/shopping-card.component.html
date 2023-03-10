@@ -1,1 +1,27 @@
-<p>shopping-card works!</p>
+<h1>Was möchten Sie bestellen?</h1>
+<div class="container-fluid py-4">
+  <div class="row">
+    <div class="col card-group">
+      <div *ngFor="let dish of items" class="mx-2">
+        <app-dish-card
+          [name]="dish.name"
+          [price]="dish.price"
+          [description]="dish.description"
+          [pictureLink]="dish.pictureLink"
+        >
+          ></app-dish-card
+        >
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button type="button" class="btn btn-primary mb-4 mt-2" (click)="buy()">
+          Hinzufügen
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col"></div>
+  </div>
+</div>

@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class AuthService {
   userData: any; // Save logged in user data
   logedIn: any;
+  role: string = '';
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
@@ -127,5 +128,25 @@ export class AuthService {
       localStorage.removeItem('user');
       this.router.navigate(['sign-in']);
     });
+  }
+
+  defineRole() {
+    const requiredRole = 'wiensdavid99@gmail.com';
+    const user = localStorage.getItem('user');
+    var userData: any = '';
+    if (user) {
+      userData = JSON.parse(user);
+    }
+    const userRole = userData.email;
+    if (userRole == requiredRole) {
+      this.role = 'admin';
+    }
+    if (userRole !== requiredRole) {
+      this.role = 'user';
+    }
+    if (userRole == null) {
+      return;
+    }
+    return this.role;
   }
 }
