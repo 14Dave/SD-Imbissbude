@@ -12,6 +12,7 @@ import {
   arrayUnion,
   arrayRemove,
 } from 'firebase/firestore';
+import { Ordered } from '../model/ordered';
 
 @Injectable({
   providedIn: 'root',
@@ -47,11 +48,13 @@ export class DataService {
     this.addDish(dish);
   }
 
-  addToCard = (dish: Dish) => {
-    dish.id = this.db.createId();
-    console.log(dish);
-
-    // const cardRef = doc(this.database, this.userEmail, dish);
-    // return this.db.collection(this.userEmail).add(dish);
+  addToCard = (order: Ordered) => {
+    order.id = this.db.createId();
+    return this.db.collection('/Card').add(order);
+    console.log(order);
   };
+
+  getCard(order: Ordered) {
+    return this.db.doc('/Dishes/' + order.id).snapshotChanges();
+  }
 }

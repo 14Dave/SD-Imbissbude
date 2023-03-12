@@ -10,9 +10,10 @@ import { Ordered } from 'src/app/model/ordered'
 export class DashboardComponent implements OnInit {
 orderedList: Ordered[] = [];
 orderedObj: Ordered = {
+  id: '',
   email: '',
   orderTime: '',
-  orderedDishes: '',
+  orderedDishes: [],
   totalPrice: '',
   pickupTime: '',
   status: '',
