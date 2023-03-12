@@ -10,19 +10,19 @@ import { Ordered } from 'src/app/model/ordered'
 export class DashboardComponent implements OnInit {
 orderedList: Ordered[] = [];
 orderedObj: Ordered = {
-  username: '',
+  email: '',
   orderTime: '',
   orderedDishes: '',
   totalPrice: '',
   pickupTime: '',
-  accept: false,
+  status: '',
 };
-username: string = 'wiet';
+email: string = 'wiet';
 orderTime: string = '20230310111923';
 orderedDishes: string = 'Döner, Döner, Pizza';
 totalPrice: string = '32€';
 pickupTime: string = '20230312213812';
-accept: boolean = false;
+status: string = 'decline';
 
 
 constructor(private data: DataService){}

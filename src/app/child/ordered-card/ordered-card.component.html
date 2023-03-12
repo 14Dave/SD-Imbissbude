@@ -1,10 +1,24 @@
-<div class="card">
-    <h5>Besteller und BestellId</h5>
-    <p>bestellte Gerichte</p>
-    <div class="decision">
-        <p class="card-pickuptime"> {{ pickupTime }} </p>
-        <button class="decision_accept" (click)="acceptOrdered()" [ngClass] = "{'green-fill': accept}">Aktzeptieren</button>
-        <button class="decision_decline" (click)="declineOrdered()" [ngClass] = "{'red-fill': !accept}">Ablehnen</button>
+<div class="card" style="width: 36rem">
+    <div class="card-body">
+        <h5 class="card-titel">Useremail und Timestamp</h5>
+        <p>Gericht Nummer 1, Gericht Nummer 2, Gericht Nummer 3</p>
+        <div class="row row-cols-2">
+            <p>totalPrice</p>
+            <p>pickupTime</p>
+        </div>
+        <div class="row row-cols-2">
+            <button
+                type="button"
+                class="btn btn-outline-secondary mt-2"
+            >
+            accept/decline
+            </button>
+            <button
+                type="button"
+                class="btn btn-danger mt-2"
+            >
+            delete
+            </button>
+        </div>
     </div>
-    <button>Löschen</button>
 </div>

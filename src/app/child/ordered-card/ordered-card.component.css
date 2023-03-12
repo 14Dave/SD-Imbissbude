@@ -1,9 +1,6 @@
 .card {
   min-width: 18rem;
 }
-p {
-  text-align: center;
-}
 .red-fill {
   background-color: red;
 }

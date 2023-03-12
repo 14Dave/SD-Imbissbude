@@ -6,17 +6,18 @@ import { Component, Input, Output } from '@angular/core';
   styleUrls: ['./ordered-card.component.css']
 })
 export class OrderedCardComponent {
-@Input() username: string = '';
+@Input() email: string = '';
 @Input() orderTime: string = '';
 @Input() orderedDishes: string = '';
 @Input() pickupTime: string = '';
-@Output() accept: boolean = false;
+@Input() totalPrice: string ='';
+@Output() status: string = '';
 
-acceptOrdered() {
-  this.accept = true;
-}
+// acceptOrdered() {
+//   this.accept = true;
+// }
 
-declineOrdered() {
-  this.accept = false;
-}
+// declineOrdered() {
+//   this.accept = false;
+// }
 }
