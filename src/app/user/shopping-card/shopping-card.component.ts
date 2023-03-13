@@ -51,7 +51,8 @@ export class ShoppingCardComponent implements OnInit {
   }
 
   buy() {
-    this.OrderObj.pickupTime = this.data.toString() + '' + this.time.toString();
+    this.OrderObj.pickupTime =
+      this.date.toString() + ' ' + this.time.toString();
     this.data.addToCard(this.OrderObj);
     localStorage.removeItem('card');
     this.router.navigate(['dashboard']);
