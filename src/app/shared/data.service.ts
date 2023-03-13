@@ -55,6 +55,6 @@ export class DataService {
   };
 
   getCard(order: Ordered) {
-    return this.db.doc('/Dishes/' + order.id).snapshotChanges();
+    console.log(this.db.doc('/Dishes/' + order.id).snapshotChanges());
   }
 }

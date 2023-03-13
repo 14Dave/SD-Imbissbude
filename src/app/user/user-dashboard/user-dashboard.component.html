@@ -1,35 +1,63 @@
-<h1>Was möchten Sie bestellen?</h1>
-<div class="container-fluid py-20">
-  <div class="row">
-    <div class="col card-group">
-      <div *ngFor="let dish of dishList" class="mx-2">
-        <app-dish-card
-          [name]="dish.name"
-          [price]="dish.price"
-          [description]="dish.description"
-          [pictureLink]="dish.pictureLink"
-        >
-          ></app-dish-card
-        >
-        <button
-          type="button"
-          class="btn btn-primary mb-4 mt-2"
-          (click)="addToCard(dish)"
-        >
-          Hinzufügen
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <button
-        type="button"
-        class="btn btn-primary mb-4 mt-2"
-        (click)="writeCard()"
+<h1>test</h1>
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col-8 px-5">
+    <ul class="list-group">
+      <li
+        class="list-group-item d-flex justify-content-between align-items-start"
       >
-        Zum Einkaufswagen hinzufügen
-      </button>
-    </div>
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Email</div>
+          Content for list item
+        </div>
+        <span class="badge bg-primary rounded-pill">14</span>
+      </li>
+      <li
+        class="list-group-item d-flex justify-content-between align-items-start"
+      >
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Zeitpunkt der Bestellung</div>
+          Content for list item
+        </div>
+        <span class="badge bg-primary rounded-pill">14</span>
+      </li>
+      <li
+        class="list-group-item d-flex justify-content-between align-items-start"
+      >
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Zeitpunkt der Abholung</div>
+          Content for list item
+        </div>
+        <span class="badge bg-primary rounded-pill">14</span>
+      </li>
+      <li
+        class="list-group-item d-flex justify-content-between align-items-start"
+      >
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Bestellte Gerichte</div>
+          Content for list item
+        </div>
+        <span class="badge bg-primary rounded-pill">14</span>
+      </li>
+      <li
+        class="list-group-item d-flex justify-content-between align-items-start"
+      >
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Summe</div>
+          Content for list item
+        </div>
+        <span class="badge bg-primary rounded-pill">14</span>
+      </li>
+      <li
+        class="list-group-item d-flex justify-content-between align-items-start"
+      >
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Status</div>
+          Content for list item
+        </div>
+        <span class="badge bg-primary rounded-pill">14</span>
+      </li>
+    </ul>
   </div>
+  <div class="col-2"></div>
 </div>
