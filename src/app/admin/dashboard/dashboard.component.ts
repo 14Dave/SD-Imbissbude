@@ -18,26 +18,40 @@ orderedObj: Ordered = {
   pickupTime: '',
   status: '',
 };
-email: string = 'wiet';
-orderTime: string = '20230310111923';
-orderedDishes: string = 'Döner, Döner, Pizza';
-totalPrice: string = '32€';
-pickupTime: string = '20230312213812';
-status: string = 'decline';
+email: string = '';
+orderTime: string = '';
+orderedDishes: string = '';
+totalPrice: string = '';
+pickupTime: string = '';
+status: string = '';
 
 
 constructor(private data: DataService){}
 
 ngOnInit(): void {
-  // this.getAllOrdered();
+  this.getAllOrdered();
 }
 
-// getAllOrdered() {
-//   this.data.
-// }
+getAllOrdered() {
+  this.data.getAllOrdered().subscribe(
+    (res) => {
+      this.orderedList = res.map((e:any) => {
+        const data = e.payload.doc.data();
+        data.id = e.payload.doc.id;
+        return data;
+      });
+    },
+    (err) => {
+      alert(err.message);
+    }
+  )
+}
 
-// deleteOrdered(ordered: Ordered) {
-
-// }
+deleteOrdered(ordered: Ordered) {
+  if (
+    window.confirm('Willst du diese Bestellung löschen: ' + ordered.email + ordered.orderTime + '?')
+  ) {this.data.deleteOrdered(ordered);
+  }
+}
 
 }

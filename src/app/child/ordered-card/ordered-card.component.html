@@ -1,24 +1,11 @@
 <div class="card" style="width: 36rem">
     <div class="card-body">
-        <h5 class="card-titel">Useremail und Timestamp</h5>
-        <p>Gericht Nummer 1, Gericht Nummer 2, Gericht Nummer 3</p>
+        <h5 class="card-titel">{{email}}Useremail und Timestamp{{orderTime}}</h5>
+        <hr>
+        <p class="text-break"> {{orderedDishes}} Gericht Nummer 1, Gericht Nummer 2, Gericht Nummer 3</p>
         <div class="row row-cols-2">
-            <p>totalPrice</p>
-            <p>pickupTime</p>
-        </div>
-        <div class="row row-cols-2">
-            <button
-                type="button"
-                class="btn btn-outline-secondary mt-2"
-            >
-            accept/decline
-            </button>
-            <button
-                type="button"
-                class="btn btn-danger mt-2"
-            >
-            delete
-            </button>
+            <h6>{{totalPrice}} totalPrice</h6>
+            <p class="font-monospace text-decoration-underline">{{pickupTime}} pickupTime</p>
         </div>
     </div>
 </div>

@@ -1,13 +1,20 @@
 <h1>Dashboard: Aktuelle Bestellungen</h1>
 <div class="container-fluid py-4">
+    
     <div class="col card-group">
-        <div *ngFor="let ordered of orderedList" class="mx-2"></div>
+        <app-ordered-card></app-ordered-card>
+        <div *ngFor="let ordered of orderedList" class="mx-2">
             <app-ordered-card
 
             >
             </app-ordered-card>
+            <button
+            type="button"
+            class="btn btn-secondary mb-4 mt-2"
+            >hallo
+            </button>
+        </div>
     </div>
-    <app-ordered-card></app-ordered-card>
 </div>
 <!--
             [email]="ordered.email"
@@ -16,3 +23,18 @@
             [pickupTime]="ordered.pickupTime"
             [totalPrice]="ordered.totalPrice"
 -->
+
+<!-- <div class="row row-cols-2">
+    <button
+        type="button"
+        class="btn btn-outline-secondary mt-2"
+    >
+    accept/decline
+    </button>
+    <button
+        type="button"
+        class="btn btn-danger mt-2"
+    >
+    delete
+    </button>
+</div> -->

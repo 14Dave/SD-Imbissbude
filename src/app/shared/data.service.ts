@@ -54,6 +54,14 @@ export class DataService {
     console.log(order);
   };
 
+  getAllOrdered(){
+    return this.db.collection('/Card').snapshotChanges();
+  }
+
+  deleteOrdered(order: Ordered) {
+    return this.db.doc('/Card/' + order.id).delete();
+  }
+
   getCard(order: Ordered) {
     return this.db.doc('/Dishes/' + order.id).snapshotChanges();
   }
