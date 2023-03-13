@@ -49,8 +49,9 @@ getAllOrdered() {
 
 deleteOrdered(ordered: Ordered) {
   if (
-    window.confirm('Willst du diese Bestellung löschen: ' + ordered.email + ordered.orderTime + '?')
-  ) {this.data.deleteOrdered(ordered);
+    window.confirm('Willst du diese Bestellung löschen: ' + ordered.email + ' ' + ordered.orderTime + '?')
+  ) {
+    this.data.deleteOrdered(ordered);
   }
 }
 

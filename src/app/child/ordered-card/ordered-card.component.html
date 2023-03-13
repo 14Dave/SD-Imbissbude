@@ -1,11 +1,12 @@
 <div class="card" style="width: 36rem">
     <div class="card-body">
-        <h5 class="card-titel">{{email}}Useremail und Timestamp{{orderTime}}</h5>
+
+        <h5 class="card-titel"> {{ email }}  {{ orderTime }}</h5>
         <hr>
-        <p class="text-break"> {{orderedDishes}} Gericht Nummer 1, Gericht Nummer 2, Gericht Nummer 3</p>
+        <p class="text-break"> {{ orderedDishes }} Gericht Nummer 1, Gericht Nummer 2, Gericht Nummer 3</p>
         <div class="row row-cols-2">
-            <h6>{{totalPrice}} totalPrice</h6>
-            <p class="font-monospace text-decoration-underline">{{pickupTime}} pickupTime</p>
+            <h6> {{ totalPrice }} €</h6>
+            <p class="font-monospace text-decoration-underline"> {{ pickupTime }} </p>
         </div>
     </div>
 </div>

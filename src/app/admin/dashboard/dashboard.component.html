@@ -2,17 +2,27 @@
 <div class="container-fluid py-4">
     
     <div class="col card-group">
-        <app-ordered-card></app-ordered-card>
         <div *ngFor="let ordered of orderedList" class="mx-2">
             <app-ordered-card
-
+                [email]="ordered.email"
+                [orderTime]="ordered.orderTime"
+                
+                [pickupTime]="ordered.pickupTime"
+                [totalPrice]="ordered.totalPrice"
             >
             </app-ordered-card>
-            <button
-            type="button"
-            class="btn btn-secondary mb-4 mt-2"
-            >hallo
-            </button>
+                <button
+                type="button"
+                class="btn btn-secondary mb-4 mt-2"
+                >Akzeptieren
+                </button>
+
+                <button
+                type="button"
+                class="btn btn-danger mb-4 mt-2"
+                (click)="deleteOrdered(ordered)"
+                >Löschen
+                </button>
         </div>
     </div>
 </div>
