@@ -11,5 +11,6 @@ export class SignOutComponent {
 
   logout() {
     this.authService.SignOut();
+    localStorage.clear();
   }
 }

@@ -1,1 +1,13 @@
-<p>dashboard works!</p>
+<h1 class="title">test</h1>
+<div *ngFor="let order of orderList">
+  <app-user-orderview
+    class="mx-2"
+    [email]="order.email"
+    [orderTime]="order.orderTime"
+    [pickupTime]="order.pickupTime"
+    [orderedDishes]="order.orderedDishes"
+    [totalPrice]="order.totalPrice"
+    [status]="order.status"
+  ></app-user-orderview>
+</div>
+<div *ngIf="">Keine Bestellungen</div>

@@ -23,6 +23,7 @@ import { DishCardComponent } from './child/dish-card/dish-card.component';
 import { ManageDishesComponent } from './admin/manage-dishes/manage-dishes.component';
 import { FormsModule } from '@angular/forms';
 import { SignOutComponent } from './login/sign-out/sign-out.component';
+import { UserOrderviewComponent } from './child/user-orderview/user-orderview.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { SignOutComponent } from './login/sign-out/sign-out.component';
     DishCardComponent,
     ManageDishesComponent,
     SignOutComponent,
+    UserOrderviewComponent,
   ],
   imports: [
     BrowserModule,
