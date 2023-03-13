@@ -8,7 +8,7 @@ import { Component, Input, Output } from '@angular/core';
 export class OrderedCardComponent {
 @Input() email: string = '';
 @Input() orderTime: string = '';
-@Input() orderedDishes: string = '';
+@Input() orderedDishes: string[] = [];
 @Input() pickupTime: string = '';
 @Input() totalPrice: string ='';
 @Output() status: string = '';

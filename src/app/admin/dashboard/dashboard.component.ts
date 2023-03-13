@@ -37,6 +37,8 @@ getAllOrdered() {
     (res) => {
       this.orderedList = res.map((e:any) => {
         const data = e.payload.doc.data();
+        data.email = data.email;
+        
         data.id = e.payload.doc.id;
         return data;
       });
