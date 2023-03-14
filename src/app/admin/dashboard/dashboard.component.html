@@ -9,5 +9,35 @@
     [totalPrice]="order.totalPrice"
     [status]="order.status"
   ></app-user-orderview>
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col">
+      <button type="button" class="btn btn-danger" (click)="deleteOrder(order)">
+        Löschen
+      </button>
+      <button
+        type="button"
+        class="btn btn-outline-info"
+        (click)="statusRejected(order)"
+      >
+        Status: Abgelehnt
+      </button>
+      <button
+        type="button"
+        class="btn btn-outline-info"
+        (click)="statusWorkedOn(order)"
+      >
+        In Bearbeitung
+      </button>
+      <button
+        type="button"
+        class="btn btn-outline-info"
+        (click)="statusReady(order)"
+      >
+        Fertig zur Abholung
+      </button>
+    </div>
+    <div class="col-3"></div>
+  </div>
 </div>
 <div *ngIf="">Keine Bestellungen</div>

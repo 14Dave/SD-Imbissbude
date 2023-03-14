@@ -52,7 +52,6 @@ export class DataService {
   addToCard = (order: Ordered) => {
     order.id = this.db.createId();
     return this.db.collection('/Card').add(order);
-    console.log(order);
   };
 
   getCard(user: User) {
@@ -64,5 +63,14 @@ export class DataService {
 
   getAllOrders() {
     return this.db.collection('/Card').snapshotChanges();
+  }
+
+  deleteOrder(order: Ordered) {
+    return this.db.doc('/Card/' + order.id).delete();
+  }
+
+  updateOrder(order: Ordered) {
+    this.deleteOrder(order);
+    this.addToCard(order);
   }
 }

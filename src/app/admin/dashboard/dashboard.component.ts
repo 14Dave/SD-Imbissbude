@@ -9,12 +9,6 @@ import { DataService } from 'src/app/shared/data.service';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  user: User = {
-    uid: '',
-    email: '',
-    displayName: '',
-    emailVerified: true,
-  };
   OrderObj: Ordered = {
     id: '',
     email: '',
@@ -45,5 +39,30 @@ export class DashboardComponent implements OnInit {
         alert(err.message);
       }
     );
+  }
+
+  addOrder(order: Ordered) {
+    this.data.addToCard(order);
+  }
+
+  deleteOrder(order: Ordered) {
+    this.data.deleteOrder(order);
+  }
+
+  statusRejected(order: Ordered) {
+    this.deleteOrder(order);
+    order.status = 'Abgelehnt';
+    this.addOrder(order);
+  }
+
+  statusWorkedOn(order: Ordered) {
+    this.deleteOrder(order);
+    order.status = 'in Bearbeitung';
+    this.addOrder(order);
+  }
+  statusReady(order: Ordered) {
+    this.deleteOrder(order);
+    order.status = 'Fertig zur Abholung';
+    this.addOrder(order);
   }
 }
