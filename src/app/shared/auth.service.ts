@@ -11,17 +11,15 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
-  userData: any; // Save logged in user data
+  userData: any;
   logedIn: any;
   role: string = '';
   constructor(
-    public afs: AngularFirestore, // Inject Firestore service
-    public afAuth: AngularFireAuth, // Inject Firebase auth service
+    public afs: AngularFirestore,
+    public afAuth: AngularFireAuth,
     public router: Router,
-    public ngZone: NgZone // NgZone service to remove outside scope warning
+    public ngZone: NgZone
   ) {
-    /* Saving user data in localstorage when 
-    logged in and setting up null when logged out */
     this.afAuth.authState.subscribe((user) => {
       if (user) {
         this.userData = user;
@@ -33,7 +31,7 @@ export class AuthService {
       }
     });
   }
-  // Sign in with email/password
+
   SignIn(email: string, password: string) {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
@@ -49,13 +47,11 @@ export class AuthService {
         window.alert(error.message);
       });
   }
-  // Sign up with email/password
+
   SignUp(email: string, password: string) {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
-        /* Call the SendVerificaitonMail() function when new user sign 
-        up and returns promise */
         this.SendVerificationMail();
         this.SetUserData(result.user);
       })
@@ -63,7 +59,7 @@ export class AuthService {
         window.alert(error.message);
       });
   }
-  // Send email verfificaiton when new user sign up
+
   SendVerificationMail() {
     return this.afAuth.currentUser
       .then((u: any) => u.sendEmailVerification())
@@ -71,18 +67,18 @@ export class AuthService {
         this.router.navigate(['verify-email-address']);
       });
   }
-  // Reset Forggot password
+
   ForgotPassword(passwordResetEmail: string) {
     return this.afAuth
       .sendPasswordResetEmail(passwordResetEmail)
       .then(() => {
-        window.alert('Password reset email sent, check your inbox.');
+        window.alert('Passwort zurückegsetzt, bitte überprüfe deine Emails');
       })
       .catch((error) => {
         window.alert(error);
       });
   }
-  // Returns true when user is looged in and email is verified
+
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
     return user !== null && user.emailVerified !== false ? true : false;
@@ -131,13 +127,13 @@ export class AuthService {
   }
 
   defineRole() {
-    const requiredRole = 'wiensdavid99@gmail.com';
+    const requiredRole = 'admin';
     const user = localStorage.getItem('user');
     var userData: any = '';
     if (user) {
       userData = JSON.parse(user);
     }
-    const userRole = userData.email;
+    const userRole = userData.role;
     if (userRole == requiredRole) {
       this.role = 'admin';
     }

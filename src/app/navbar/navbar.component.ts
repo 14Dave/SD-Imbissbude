@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/auth.service';
 import { DataService } from '../shared/data.service';
 import { Router } from '@angular/router';
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
 })
-export class NavbarComponent implements OnInit, OnChanges {
+export class NavbarComponent implements OnInit {
   role: any = '';
 
   constructor(
@@ -23,10 +23,6 @@ export class NavbarComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.role = this.authService.defineRole();
-  }
-
-  ngOnChanges() {
-    this.ngOnInit();
   }
 
   updated() {
