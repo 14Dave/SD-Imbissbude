@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/shared/auth.service';
 export class SignUpComponent {
   email: string = '';
   password: string = '';
+  password2: string = '';
 
   constructor(public authService: AuthService) {}
 
@@ -20,6 +21,16 @@ export class SignUpComponent {
 
     if (this.password == '') {
       alert('bitte Passwort eingeben');
+      return;
+    }
+
+    if (this.password2 == '') {
+      alert('bitte Passwort eingeben');
+      return;
+    }
+
+    if (this.password !== this.password2) {
+      alert('Passwörter stimmen nicht überein');
       return;
     }
 

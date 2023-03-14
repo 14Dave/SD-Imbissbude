@@ -28,11 +28,22 @@
                 [(ngModel)]="password"
               />
             </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label"
+                >Passwort wiederholen</label
+              >
+              <input
+                type="password"
+                class="form-control"
+                name="password"
+                [(ngModel)]="password2"
+              />
+            </div>
             <button type="login" class="btn btn-info" (click)="register()">
               Registrieren
             </button>
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-6 mt-2">
                 <a href="/sign-in" style="text-decoration: none"
                   ><span class="text-warning">Schon einen Account?</span></a
                 >
