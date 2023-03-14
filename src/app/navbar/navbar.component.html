@@ -3,11 +3,11 @@
   style="background-color: #ffcc00"
 >
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/ordering">
       <img src="assets/hamburger.png" alt="Bootstrap" width="40" height="40" />
     </a>
 
-    <a class="navbar-brand" href="#">Best Burger</a>
+    <a class="navbar-brand" href="/ordering">Best Burger</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -25,7 +25,7 @@
           class="nav-item px-1"
           *ngIf="role == 'user'"
           routerLink="/ordering"
-          style="cursor: pointer"
+          style="cursor: pointer; border: 1px; border-radius: 4px"
         >
           Bestellen
         </li>
