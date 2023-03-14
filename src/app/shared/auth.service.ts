@@ -127,13 +127,13 @@ export class AuthService {
   }
 
   defineRole() {
-    const requiredRole = 'admin';
+    const requiredRole = 'wiensdavid99@gmail.com';
     const user = localStorage.getItem('user');
     var userData: any = '';
     if (user) {
       userData = JSON.parse(user);
     }
-    const userRole = userData.role;
+    const userRole = userData.email;
     if (userRole == requiredRole) {
       this.role = 'admin';
     }
