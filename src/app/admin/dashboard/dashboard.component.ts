@@ -19,6 +19,8 @@ export class DashboardComponent implements OnInit {
     status: '',
   };
   orderList: Ordered[] = [];
+  date: string = '';
+  time: string = '';
 
   constructor(private data: DataService) {}
 
@@ -63,6 +65,12 @@ export class DashboardComponent implements OnInit {
   statusReady(order: Ordered) {
     this.deleteOrder(order);
     order.status = 'Fertig zur Abholung';
+    this.addOrder(order);
+  }
+
+  updatePickUpTime(order: Ordered) {
+    this.deleteOrder(order);
+    order.pickupTime = this.date.toString() + ' ' + this.time.toString();
     this.addOrder(order);
   }
 }
