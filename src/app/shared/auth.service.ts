@@ -38,6 +38,11 @@ export class AuthService {
       .then((result) => {
         this.SetUserData(result.user);
         this.afAuth.authState.subscribe((user) => {
+          if (user?.email == 'wiensdavid99@gmail.com') {
+            this.router.navigate(['dashboard-admin']);
+            return;
+          }
+
           if (user) {
             this.router.navigate(['ordering']);
           }
