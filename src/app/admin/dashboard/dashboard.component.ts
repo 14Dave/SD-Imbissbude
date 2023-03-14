@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/shared/data.service';
 import { Ordered } from 'src/app/model/ordered'
+import { User } from 'src/app/model/user';
+
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
 orderedList: Ordered[] = [];

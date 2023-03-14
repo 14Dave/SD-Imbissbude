@@ -1,4 +1,4 @@
-<h1>Was möchten Sie bestellen?</h1>
+<h1>Übersicht</h1>
 <div class="container-fluid py-4">
   <div class="row">
     <div class="col card-group">
@@ -14,14 +14,16 @@
       </div>
     </div>
     <div class="row">
-      <div class="col">
+      <div class="col-2 ms-3">
         <button type="button" class="btn btn-primary mb-4 mt-2" (click)="buy()">
           Hinzufügen
         </button>
       </div>
+
+      <div class="input-group mb-3 col">
+        <input type="date" class="form-control" [(ngModel)]="date" />
+        <input type="time" class="form-control" [(ngModel)]="time" />
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col"></div>
   </div>
 </div>

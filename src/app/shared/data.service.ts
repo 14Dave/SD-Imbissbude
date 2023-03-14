@@ -13,6 +13,7 @@ import {
   arrayRemove,
 } from 'firebase/firestore';
 import { Ordered } from '../model/ordered';
+import { User } from '../model/user';
 
 @Injectable({
   providedIn: 'root',
@@ -62,7 +63,14 @@ export class DataService {
     return this.db.doc('/Card/' + order.id).delete();
   }
 
-  getCard(order: Ordered) {
-    console.log(this.db.doc('/Dishes/' + order.id).snapshotChanges());
+  getCard(user: User) {
+    // return this.db.doc('/Dishes/' + email).snapshotChanges();
+    return this.db
+      .collection('/Card', (ref) => ref.where('email', '==', user.email))
+      .get();
+  }
+
+  getAllOrders() {
+    return this.db.collection('/Card').snapshotChanges();
   }
 }
