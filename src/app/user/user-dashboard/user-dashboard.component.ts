@@ -29,7 +29,7 @@ export class UserDashboardComponent implements OnInit {
     status: '',
   };
   orderList: Ordered[] = [];
-  // user: any;
+  enum: number = 0;
 
   constructor(private auth: AuthService, private data: DataService) {}
 
@@ -45,9 +45,11 @@ export class UserDashboardComponent implements OnInit {
     this.data.getCard(this.user).subscribe((querySnapshot: any) => {
       querySnapshot.forEach((doc: any) => {
         this.orderList.push(doc.data());
+        var totalPrice = Number(this.orderList[this.enum].totalPrice);
+        this.orderList[this.enum].totalPrice = totalPrice.toFixed(2);
+        this.enum += 1;
       });
     });
-    console.log(this.orderList);
   }
 
   updateData() {

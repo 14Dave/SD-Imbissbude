@@ -34,6 +34,8 @@ export class DashboardComponent implements OnInit {
         this.orderList = res.map((e: any) => {
           const data = e.payload.doc.data();
           data.id = e.payload.doc.id;
+          var totalPrice = Number(data.totalPrice);
+          data.totalPrice = totalPrice.toFixed(2);
           return data;
         });
       },
