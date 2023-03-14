@@ -69,8 +69,12 @@ export class DashboardComponent implements OnInit {
   }
 
   updatePickUpTime(order: Ordered) {
-    this.deleteOrder(order);
-    order.pickupTime = this.date.toString() + ' ' + this.time.toString();
-    this.addOrder(order);
+    if (this.date && this.time) {
+      this.deleteOrder(order);
+      order.pickupTime = this.date.toString() + ' ' + this.time.toString();
+      this.addOrder(order);
+    } else {
+      alert('Bitte Zeit und Datum angeben');
+    }
   }
 }
