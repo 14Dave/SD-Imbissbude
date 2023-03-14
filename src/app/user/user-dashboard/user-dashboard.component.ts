@@ -49,4 +49,9 @@ export class UserDashboardComponent implements OnInit {
     });
     console.log(this.orderList);
   }
+
+  updateData() {
+    this.orderList = [];
+    this.ngOnInit();
+  }
 }
