@@ -13,14 +13,13 @@ import { AuthService } from '../auth.service';
 })
 export class RoleGuard implements CanActivate {
   constructor(public authService: AuthService, public router: Router) {}
-  canActivate(route: ActivatedRouteSnapshot): boolean {
+  canActivate(): boolean {
     //set admin
     const requiredRole = 'wiensdavid99@gmail.com';
     const user = localStorage.getItem('user');
-    const userData: any = '';
+    var userData: any = '';
     if (user) {
-      const userData = JSON.parse(user);
-      return userData;
+      userData = JSON.parse(user);
     }
     const userRole = userData.email;
     if (!this.authService.isLoggedIn || userRole !== requiredRole) {
