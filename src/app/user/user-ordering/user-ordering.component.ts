@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Dish } from 'src/app/model/dish';
 import { AuthService } from 'src/app/shared/auth.service';
 import { DataService } from 'src/app/shared/data.service';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-user-ordering',
@@ -10,6 +11,7 @@ import { DataService } from 'src/app/shared/data.service';
   styleUrls: ['./user-ordering.component.css'],
 })
 export class UserOrderingComponent implements OnInit {
+  shoppingCard = faCartPlus;
   card: Dish[] = [];
   cardCounter: number = 0;
   dishList: Dish[] = [];
@@ -53,7 +55,12 @@ export class UserOrderingComponent implements OnInit {
   }
 
   writeCard() {
-    localStorage.setItem('card', JSON.stringify(this.card));
-    this.router.navigate(['shopping-card']);
+    if (this.card.length > 0) {
+      localStorage.setItem('card', JSON.stringify(this.card));
+      this.router.navigate(['shopping-card']);
+    } else {
+      alert('Bitte fügen Sie Produkte zum Warenkorb hinzu');
+      return;
+    }
   }
 }

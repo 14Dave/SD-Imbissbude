@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { Dish } from 'src/app/model/dish';
 import { Ordered } from 'src/app/model/ordered';
 import { DataService } from 'src/app/shared/data.service';
@@ -10,6 +11,7 @@ import { DataService } from 'src/app/shared/data.service';
   styleUrls: ['./shopping-card.component.css'],
 })
 export class ShoppingCardComponent implements OnInit {
+  card = faCartPlus;
   items!: Dish[];
   OrderObj: Ordered = {
     id: '',
@@ -51,10 +53,15 @@ export class ShoppingCardComponent implements OnInit {
   }
 
   buy() {
-    this.OrderObj.pickupTime =
-      this.date.toString() + ' ' + this.time.toString();
-    this.data.addToCard(this.OrderObj);
-    localStorage.removeItem('card');
-    this.router.navigate(['dashboard']);
+    if (this.date && this.time) {
+      this.OrderObj.pickupTime =
+        this.date.toString() + ' ' + this.time.toString();
+      this.data.addToCard(this.OrderObj);
+      localStorage.removeItem('card');
+      this.router.navigate(['dashboard']);
+    } else {
+      alert('Bitte eine Abholzeit angeben');
+      return;
+    }
   }
 }

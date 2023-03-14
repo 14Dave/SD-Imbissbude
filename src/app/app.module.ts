@@ -24,6 +24,7 @@ import { ManageDishesComponent } from './admin/manage-dishes/manage-dishes.compo
 import { FormsModule } from '@angular/forms';
 import { SignOutComponent } from './login/sign-out/sign-out.component';
 import { UserOrderviewComponent } from './child/user-orderview/user-orderview.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { UserOrderviewComponent } from './child/user-orderview/user-orderview.co
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     FormsModule,
+    FontAwesomeModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],
