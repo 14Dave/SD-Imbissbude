@@ -27,11 +27,12 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 ## Fehler bei dem ersten ausführen
-In der Datei node_modules/@angular/fire/compat/firestore/interfaces.d.ts
+In der Datei `node_modules/@angular/fire/compat/firestore/interfaces.d.ts`
 
 den code:
 
-```export interface DocumentSnapshotExists<T> extends firebase.firestore.DocumentSnapshot {
+```
+export interface DocumentSnapshotExists<T> extends firebase.firestore.DocumentSnapshot {
     readonly exists: true;
     data(options?: SnapshotOptions): T;
 }
@@ -48,11 +49,13 @@ export interface QuerySnapshot<T> extends firebase.firestore.QuerySnapshot {
     readonly docs: QueryDocumentSnapshot<T>[];
 }
 export interface DocumentChange<T> extends firebase.firestore.DocumentChange {
-    readonly doc: QueryDocumentSnapshot<T>;```
+    readonly doc: QueryDocumentSnapshot<T>;
+```
     
 austauschen mit:
 
-```export interface DocumentSnapshotExists<T> extends firebase.firestore.DocumentSnapshot<T> {
+```
+export interface DocumentSnapshotExists<T> extends firebase.firestore.DocumentSnapshot<T> {
     readonly exists: true;
     data(options?: SnapshotOptions): T;
 }
@@ -69,6 +72,7 @@ export interface QuerySnapshot<T> extends firebase.firestore.QuerySnapshot<T> {
     readonly docs: QueryDocumentSnapshot<T>[];
 }
 export interface DocumentChange<T> extends firebase.firestore.DocumentChange<T> {
-    readonly doc: QueryDocumentSnapshot<T>;```
+    readonly doc: QueryDocumentSnapshot<T>;
+```
     
 
