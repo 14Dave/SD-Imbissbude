@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/auth.service';
-import { DataService } from '../shared/data.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,11 +10,7 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
   role: any = '';
 
-  constructor(
-    private authService: AuthService,
-    private data: DataService,
-    private router: Router
-  ) {
+  constructor(private authService: AuthService, private router: Router) {
     router.events.subscribe(() => {
       this.ngOnInit();
     });

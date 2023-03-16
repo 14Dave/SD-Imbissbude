@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Dish } from 'src/app/model/dish';
-import { AuthService } from 'src/app/shared/auth.service';
 import { DataService } from 'src/app/shared/data.service';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 
@@ -23,11 +22,7 @@ export class UserOrderingComponent implements OnInit {
     pictureLink: '',
   };
 
-  constructor(
-    private auth: AuthService,
-    private data: DataService,
-    private router: Router
-  ) {}
+  constructor(private data: DataService, private router: Router) {}
 
   ngOnInit(): void {
     this.getAllDishes();
@@ -50,7 +45,6 @@ export class UserOrderingComponent implements OnInit {
 
   addToCard(dish: Dish) {
     this.card.push(dish);
-    console.log(this.card);
     this.cardCounter += 1;
   }
 

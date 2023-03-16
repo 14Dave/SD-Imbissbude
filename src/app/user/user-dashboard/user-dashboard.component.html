@@ -1,5 +1,5 @@
 <h1
-  class="title my-3"
+  class="title py-3"
   style="display: flex; align-items: center; justify-content: center"
 >
   Dashboard
@@ -12,7 +12,7 @@
 
 <div *ngFor="let order of orderList">
   <app-user-orderview
-    class="mx-2"
+    class="px-2"
     [email]="order.email"
     [orderTime]="order.orderTime"
     [pickupTime]="order.pickupTime"
