@@ -31,7 +31,7 @@ In der Datei node_modules/@angular/fire/compat/firestore/interfaces.d.ts
 
 den code:
 
-export interface DocumentSnapshotExists<T> extends firebase.firestore.DocumentSnapshot {
+`export interface DocumentSnapshotExists<T> extends firebase.firestore.DocumentSnapshot {
     readonly exists: true;
     data(options?: SnapshotOptions): T;
 }
@@ -48,11 +48,11 @@ export interface QuerySnapshot<T> extends firebase.firestore.QuerySnapshot {
     readonly docs: QueryDocumentSnapshot<T>[];
 }
 export interface DocumentChange<T> extends firebase.firestore.DocumentChange {
-    readonly doc: QueryDocumentSnapshot<T>;
+    readonly doc: QueryDocumentSnapshot<T>;`
     
 austauschen mit:
 
-export interface DocumentSnapshotExists<T> extends firebase.firestore.DocumentSnapshot<T> {
+`export interface DocumentSnapshotExists<T> extends firebase.firestore.DocumentSnapshot<T> {
     readonly exists: true;
     data(options?: SnapshotOptions): T;
 }
@@ -69,6 +69,6 @@ export interface QuerySnapshot<T> extends firebase.firestore.QuerySnapshot<T> {
     readonly docs: QueryDocumentSnapshot<T>[];
 }
 export interface DocumentChange<T> extends firebase.firestore.DocumentChange<T> {
-    readonly doc: QueryDocumentSnapshot<T>;
+    readonly doc: QueryDocumentSnapshot<T>;`
     
 
